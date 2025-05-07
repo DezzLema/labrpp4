@@ -18,13 +18,17 @@ class Check:
         """Перегрузка метода str для строкового представления объекта"""
         return f"Чек №{self.number}, Дата и время: {self.date_time}, Сумма: {self.amount}, Товар: {self.item_name}"
 
+    # Модифицируем __setattr__ в классе Check
     def __setattr__(self, name, value):
         """Запись значений в свойства только через __setattr__"""
         if name == "amount":
             if isinstance(value, str):  # Проверяем, если значение - строка
-                value = float(value.replace(',', '.'))  # Преобразуем строку в число с плавающей точкой
-            elif isinstance(value, float):
-                pass  # Если уже float, ничего не меняем
+                try:
+                    value = float(value.replace(',', '.'))  # Преобразуем строку в число с плавающей точкой
+                except ValueError:
+                    raise ValueError("Сумма должна быть числом или строкой, представляющей число.")
+            elif isinstance(value, (int, float)):
+                value = float(value)  # Преобразуем int в float для единообразия
             else:
                 raise ValueError("Сумма должна быть числом или строкой, представляющей число.")
         super().__setattr__(name, value)
