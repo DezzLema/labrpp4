@@ -169,6 +169,10 @@ class DirectoryAnalyzer:
                     continue
         return total_size
 
+
+    def some(self):
+        return 0
+
 # Пример использования:
 if __name__ == "__main__":
     # Создаем коллекцию чеков, загружая данные из файла
