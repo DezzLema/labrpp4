@@ -198,9 +198,9 @@ if __name__ == "__main__":
     collection.save_to_csv("output.csv")
     print("\nЧеки сохранены в файл output.csv.")
 
-
     # Работа с файлами и папками
     directory = input("\nВведите путь к директории для подсчета файлов и папок: ")
-    file_count, folder_count = count_files_and_folders(directory)
+    analyzer = DirectoryAnalyzer(directory)  # Создаем экземпляр DirectoryAnalyzer
+    file_count, folder_count = analyzer.count_files_and_folders()  # Вызываем метод экземпляра
     print(f"Количество файлов: {file_count}")
-    print(f"Количество папок: {folder_count}")
+    print(f"Количество папок: {folder_count}") #comment
