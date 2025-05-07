@@ -140,6 +140,7 @@ class CheckCollection:
 
 class DirectoryAnalyzer:
     """Класс для анализа содержимого директории"""
+
     def __init__(self, directory_path):
         self.directory_path = directory_path
 
@@ -168,6 +169,13 @@ class DirectoryAnalyzer:
                 except (FileNotFoundError, PermissionError):
                     continue
         return total_size
+
+    def nothing(self):
+        return 0;
+
+    def doconflict(self):
+        return 0;
+
 
 # Пример использования:
 if __name__ == "__main__":
@@ -207,4 +215,4 @@ if __name__ == "__main__":
     analyzer = DirectoryAnalyzer(directory)  # Создаем экземпляр DirectoryAnalyzer
     file_count, folder_count = analyzer.count_files_and_folders()  # Вызываем метод экземпляра
     print(f"Количество файлов: {file_count}")
-    print(f"Количество папок: {folder_count}") #comment
+    print(f"Количество папок: {folder_count}")  # comment
