@@ -165,8 +165,6 @@ class DirectoryAnalyzer:
                     continue
         return total_size
 
-    def nothing(self):
-        return 0;
 
 # Пример использования:
 if __name__ == "__main__":
